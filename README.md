@@ -16,11 +16,13 @@
 This project is the `CPP 08` learning module of 42 School.
 All the C++ modules are based on C++98.
 
-This project focuses on  : 
+This project focuses on  : `Containers`.
 
-[]() is used to
+[Containers](https://www.geeksforgeeks.org/containers-cpp-stl/) are used to store elements in a way to making it easier & improve the flexibility. Few examples of `Vector`, `Map` & `List`.
 
 ## Exercices
+
+Create a template function `easyfind()`. It takes a `type T`(it's supposed to be a container) and an `int` as parameters. It returns the int if the value is found in the container. If not, the function throw an `exception`.
 
 ### ex00
 
