@@ -22,9 +22,9 @@ This project focuses on  : `Containers`.
 
 ## Exercices
 
-Create a template function `easyfind()`. It takes a `type T`(it's supposed to be a container) and an `int` as parameters. It returns the int if the value is found in the container. If not, the function throw an `exception`.
-
 ### ex00
+
+Create a template function `easyfind()`. It takes a `type T`(it's supposed to be a container) and an `int` as parameters. It returns the int if the value is found in the container. If not, the function throw an `exception`.
 
 ### ex01
 
