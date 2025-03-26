@@ -31,7 +31,7 @@ const char	*NotInContainerException<T>::what() const throw(){
 //////////////////FUNCTION/////////////////////////
 
 template <typename T>
-int	easyfind(T container, int n){
+int	easyfind(T &container, int n){
 	for (unsigned int i = 0 ; i < container.size() ; i++)
 	{
 		if (container[i] == n)
