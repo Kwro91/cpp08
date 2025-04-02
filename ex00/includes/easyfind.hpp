@@ -32,11 +32,10 @@ const char	*NotInContainerException<T>::what() const throw(){
 
 template <typename T>
 int	easyfind(T &container, int n){
-	for (unsigned int i = 0 ; i < container.size() ; i++)
-	{
-		if (container[i] == n)
-			return (container[i]);
-	}
-	throw NotInContainerException<T>();
+	typename T::iterator it = std::find(container.begin(), container.end(), n); //marche avec tout les container sequentiel
+	if (it == container.end())
+		throw NotInContainerException<T>();
+	std::cout << GREEN << "Value " << n << " found." << WHITE << std::endl;
+	return (n);
 }
 #endif

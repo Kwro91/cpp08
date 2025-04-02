@@ -20,11 +20,14 @@ This project focuses on  : `Containers`.
 
 [Containers](https://www.geeksforgeeks.org/containers-cpp-stl/) are used to store elements in a way to making it easier & improve the flexibility. Few examples of `Vector`, `Map` & `List`.
 
+[Iterator]("https://www.w3schools.com/cpp/cpp_iterators.asp") are used as a pointer to parse the containers. For example, begin() or end() are functions belonging to data structures (vector,list...) and they return an iterator.
+
 ## Exercices
 
 ### ex00
 
 Create a template function `easyfind()`. It takes a `type T`(it's supposed to be a container) and an `int` as parameters. It returns the int if the value is found in the container. If not, the function throw an `exception`.
+To find if the value is in the container, we use an `iterator`.
 
 ### ex01
 

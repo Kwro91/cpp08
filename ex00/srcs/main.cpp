@@ -9,24 +9,21 @@ int main(){
 	
 	try {
 		std::cout << BLUE << "Try with 42:" << WHITE << std::endl;
-		int value = easyfind(v, 42);
-		std::cout << "easyfind found: " << value << std::endl;
+		easyfind(v, 42);
 	} catch (std::exception &e) {
 		std::cerr << YELLOW << e.what() << WHITE << std::endl;
 	}
 
 	try {
 		std::cout << BLUE << "Try with 100:" << WHITE << std::endl;
-		int value = easyfind(v, 100);
-		std::cout << "easyfind found: " << value << std::endl;
+		easyfind(v, 100);
 	} catch (std::exception &e) {
 		std::cerr << YELLOW << e.what() << WHITE << std::endl;
 	}
 
 	try {
 		std::cout << BLUE << "Try with empty vector and 42:" << WHITE << std::endl;
-		int value = easyfind(v2, 42);
-		std::cout << "easyfind found: " << value << std::endl;
+		easyfind(v2, 42);
 	} catch (std::exception &e) {
 		std::cerr << YELLOW << e.what() << WHITE << std::endl;
 	}
