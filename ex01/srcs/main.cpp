@@ -17,6 +17,27 @@ void	testSubject(){
 	std::cout << std::endl;
 }
 
+void	testInvalidAdd(){
+	std::cout << GREEN << "=== Test invalid add===" << WHITE << std::endl;
+	Span sp = Span(5);
+	for (int i = 0; i < 10; i++)
+		sp.addNumber(i);
+}
+
+void	testInvalidShortest(){
+	std::cout << GREEN << "=== Test invalid shortest===" << WHITE << std::endl;
+	Span sp = Span(1);
+	sp.addNumber(1);
+	std::cout << "Short: " << sp.shortestSpan() << std::endl;
+}
+
+void	testInvalidLongest(){
+	std::cout << GREEN << "=== Test invalid longest===" << WHITE << std::endl;
+	Span sp = Span(1);
+	sp.addNumber(1);
+	std::cout << "Long: " << sp.longestSpan() << std::endl;
+}
+
 int	findVector(std::vector<int> &save, int value){
 	std::vector<int>::iterator it = save.begin();
 	std::vector<int>::iterator itend = save.end();
@@ -105,7 +126,25 @@ int main(){
 	}
 
 	try {
-		testN(10000);
+		testInvalidAdd();
+	} catch (std::exception &e){
+		std::cerr << YELLOW << e.what() << WHITE << std::endl;
+	}
+
+	try {
+		testInvalidShortest();
+	} catch (std::exception &e){
+		std::cerr << YELLOW << e.what() << WHITE << std::endl;
+	}
+
+	try {
+		testInvalidLongest();
+	} catch (std::exception &e){
+		std::cerr << YELLOW << e.what() << WHITE << std::endl;
+	}
+
+	try {
+		testN(10);
 	} catch (std::exception &e){
 		std::cerr << YELLOW << e.what() << WHITE << std::endl;
 	}

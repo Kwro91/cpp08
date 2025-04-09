@@ -8,8 +8,8 @@ const char	*Span::NoSpanException::what() const throw(){
 	return ("Exception: No span found.");
 }
 
-const char	*Span::WrongSpanException::what() const throw(){
-	return ("Exception: Wrong span for these functions.");
+const char	*Span::InvalidSpanException::what() const throw(){
+	return ("Exception: Invalid span.");
 }
 
 //////////////
@@ -36,7 +36,7 @@ Span	&Span::operator=(const Span &s){
 
 int	Span::shortestSpan(){
 	if (_container.size() <= 1)
-		throw WrongSpanException();
+		throw InvalidSpanException();
 	int span = -1;
 	std::vector<int>::iterator it = _container.begin();
 	std::vector<int>::iterator itend = _container.end();
@@ -65,7 +65,7 @@ int	Span::shortestSpan(){
 
 int	Span::longestSpan(){
 	if (_container.size() <= 1)
-		throw WrongSpanException();
+		throw InvalidSpanException();
 	int span = -1;
 	std::vector<int>::iterator it = _container.begin();
 	std::vector<int>::iterator itend = _container.end();

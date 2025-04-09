@@ -43,7 +43,7 @@ class Span {
 				virtual const char	*what() const throw();
 		};
 
-		class WrongSpanException : public std::exception {
+		class InvalidSpanException : public std::exception {
 			public:
 				virtual const char *what() const throw();
 		};
