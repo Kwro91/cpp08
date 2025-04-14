@@ -1,4 +1,4 @@
-#include "../includes/MutantStack.hpp"
+#include "MutantStack.hpp"
 
 template <typename T>
 MutantStack<T>::MutantStack(){}
@@ -8,38 +8,41 @@ MutantStack<T>::~MutantStack(){}
 
 template <typename T>
 MutantStack<T>::MutantStack(const MutantStack &m){
-	*this = src;
+	*this = m;
 }
 
 template <typename T>
 MutantStack<T>	&MutantStack<T>::operator=(const MutantStack &m){
-	c = m.c; //c is a protected container from std::stack
+	this->c = m.c; //c is a protected container from std::stack
 	return (*this);
 }
+
+
+// need the keyword typename to precise it's a type to the compiler
 // iterator
 template <typename T>
-MutantStack<T>::iterator	MutantStack<T>::begin(){return (c.begin());}
+typename MutantStack<T>::iterator	MutantStack<T>::begin(){return (this->c.begin());}
 
 template <typename T>
-MutantStack<T>::iterator	MutantStack<T>::end(){return (c.end());}
+typename MutantStack<T>::iterator	MutantStack<T>::end(){return (this->c.end());}
 
 // const
 template <typename T>
-MutantStack<T>::const_iterator	MutantStack<T>::begin() const {return (c.begin());}
+typename MutantStack<T>::const_iterator	MutantStack<T>::begin() const {return (this->c.begin());}
 
 template <typename T>
-MutantStack<T>::const_iterator	MutantStack<T>::end() const {return (c.end());}
+typename MutantStack<T>::const_iterator	MutantStack<T>::end() const {return (this->c.end());}
 
 // reverse
 template <typename T>
-MutantStack<T>::reverse_iterator	MutantStack<T>::rbegin(){return (c.rbegin());}
+typename MutantStack<T>::reverse_iterator	MutantStack<T>::rbegin(){return (this->c.rbegin());}
 
 template <typename T>
-MutantStack<T>::reverse_iterator	MutantStack<T>::rend(){return (c.rend());}
+typename MutantStack<T>::reverse_iterator	MutantStack<T>::rend(){return (this->c.rend());}
 
 // const_reverse
 template <typename T>
-MutantStack<T>::const_reverse_iterator	MutantStack<T>::rbegin() const {return (c.rbegin());}
+typename MutantStack<T>::const_reverse_iterator	MutantStack<T>::rbegin() const {return (this->c.rbegin());}
 
 template <typename T>
-MutantStack<T>::const_reverse_iterator	MutantStack<T>::rend() const {return (c.rend());}
+typename MutantStack<T>::const_reverse_iterator	MutantStack<T>::rend() const {return (this->c.rend());}
