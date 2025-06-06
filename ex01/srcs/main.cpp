@@ -65,7 +65,7 @@ void	testN(unsigned int n){
 	for (size_t i = 0 ; i < n ; i++)
 	{
 		int nb = std::rand() % (n * 2);
-		while (findVector(save, nb) != 0)
+		while (findVector(save, nb) != 0) //pour les doublons
 			nb = std::rand() % (n * 2);
 		sp.addNumber(nb);
 		save.push_back(nb);
@@ -118,6 +118,27 @@ void	testBadAddRange(){
 	std::cout << std::endl;
 }
 
+void	testNegatif(){
+		std::cout << GREEN << "=== Test MANUEL ===" << WHITE << std::endl;
+	std::vector<int> v;
+	Span sp = Span(20);
+
+	for (int i = -10 ; i > -20 ; i--) // 90->150
+		v.push_back(i);
+	for (int i = 0 ; i > -10 ; i--) // 0->89
+		sp.addNumber(i);
+	std::cout << "Before Range:" << std::endl;
+	sp.printVec();
+	std::vector<int>::iterator it = v.begin();
+	std::vector<int>::iterator itend = v.end();
+	std::cout << "After Range:" << std::endl;
+	sp.addRange(it, itend);
+	sp.printVec();
+	std::cout << "Short: " << sp.shortestSpan() << std::endl;
+	std::cout << "Long: " << sp.longestSpan() << std::endl;
+	std::cout << std::endl;
+}
+
 int main(){
 	try {
 		testSubject();
@@ -157,6 +178,12 @@ int main(){
 	
 	try {
 		testBadAddRange();
+	} catch (std::exception &e){
+		std::cerr << YELLOW << e.what() << WHITE << std::endl;
+	}
+
+	try {
+		testNegatif();
 	} catch (std::exception &e){
 		std::cerr << YELLOW << e.what() << WHITE << std::endl;
 	}
