@@ -19,8 +19,8 @@ void	subject(){
 	--it;
 	while (it != ite)
 	{
-	std::cout << *it << std::endl;
-	++it;
+		std::cout << *it << std::endl;
+		++it;
 	}
 	std::stack<int> s(mstack);
 }
@@ -44,14 +44,93 @@ void	subjectList(){
 	--it;
 	while (it != ite)
 	{
-	std::cout << *it << std::endl;
-	++it;
+		std::cout << *it << std::endl;
+		++it;
 	}
 	std::list<int> s(mstack);
+}
+
+void	testPerso(){
+	std::cout << GREEN << "=== Test subject with list ===" << WHITE << std::endl;
+	MutantStack<int> mstack;
+	for (int i = 0; i < 100 ; i++)
+		mstack.push(i);
+	
+	std::cout << YELLOW << "Test sur iterator basiques:" << WHITE << std::endl;
+	MutantStack<int>::iterator it = mstack.begin();
+	MutantStack<int>::iterator ite = mstack.end();
+	for (int count = 0; it != ite; it++){
+		count++;
+		std::cout << *it << " ";
+		if (count % 5 == 0)
+			std::cout << std::endl;
+	}
+	std::cout << std::endl;
+	
+	std::cout << YELLOW << "Test sur const_iterator:" << WHITE << std::endl;
+	MutantStack<int>::const_iterator cit = mstack.begin();
+	MutantStack<int>::const_iterator cite = mstack.end();
+	for (int count = 0; cit != cite; cit++){
+		count++;
+		std::cout << *cit << " ";
+		if (count % 5 == 0)
+			std::cout << std::endl;
+	}
+	std::cout << std::endl;
+
+	std::cout << YELLOW << "Test sur reverse iterator:" << WHITE << std::endl;
+	MutantStack<int>::reverse_iterator rit = mstack.rbegin();
+	MutantStack<int>::reverse_iterator rite = mstack.rend();
+	for (int count = 0; rit != rite; rit++)
+	{
+		count++;
+		std::cout << *rit << " ";
+		if (count % 5 == 0)
+			std::cout << std::endl;
+	}
+	std::cout << std::endl;
+
+	std::cout << YELLOW << "Test sur const_reverse_iterator:" << WHITE << std::endl;
+	MutantStack<int>::const_reverse_iterator crit = mstack.rbegin();
+	MutantStack<int>::const_reverse_iterator crite = mstack.rend();
+	for (int count = 0; crit != crite; crit++)
+	{
+		count++;
+		std::cout << *crit << " ";
+		if (count % 5 == 0)
+			std::cout << std::endl;
+	}
+	std::cout << std::endl;
+
+	std::cout << YELLOW << "Test fct pop() x 50:" << WHITE << std::endl; //prove inheritance
+	for (int i = 0; i < 50; i++)
+		mstack.pop();
+	it = mstack.begin();
+	ite = mstack.end();
+	for (int count = 0; it != ite; it++)
+	{
+		count++;
+		std::cout << *it << " ";
+		if (count % 5 == 0)
+			std::cout << std::endl;
+	}
+	std::cout << std::endl;
+
+	std::cout << YELLOW << "Test modif iterator et const_iterator:" << WHITE << std::endl; //prove const read only
+	cit = mstack.begin();
+	it = mstack.begin();
+	std::cout << "Iterator: mstack[0] = " << *it << std::endl;
+	std::cout << "Const_Iterator: mstack[0] = " << *cit << std::endl;
+	*it = 42;
+	std::cout << "Iterator: mstack[0] = " << *it << std::endl;
+	// *cit = -42; //can't compile with this line
+	std::cout << "Const_Iterator: mstack[0] = " << *cit << std::endl;
+	std::cout << "You must try to compile after removing the comment just above to test." << std::endl;
 }
 
 int main(){
 	subject();
 	subjectList();
-	return 0;
+	std::cout << std::endl << "///////////////////////////////////////////////////////////////" << std::endl << std::endl;
+	testPerso();
 }
